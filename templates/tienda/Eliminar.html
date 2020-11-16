@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="site-wrapper belly-homepage--default">
+
+    {% include 'base/navbarStatic.html' %}
+
+    <div class="belly-bredcrumb-section">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <form method="post" class="container">
+        {% csrf_token %}
+        <h3>Desea Eliminar el registro de {{ usuario.first_name }} </h3>
+        <button class="btn btn-danger" type="submit">Si, Eliminar</button>
+        <a class="btn btn-default" href="{% url 'lista'%}">Cancelar</a>
+    </form>
+
+
+    <div class="site-bottom">
+
+        {% include 'base/footer.html' %}
+    </div>
+</div>
+{% endblock %}

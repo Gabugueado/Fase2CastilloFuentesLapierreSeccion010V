@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="site-wrapper belly-homepage--default">
+
+  <!-- Main Menu Starts -->
+  {% include 'base/navbarStatic.html' %}
+  <!-- Main Menu /ends -->
+  <div class="belly-bredcrumb-section">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a href="{% url 'index' %}">inicio</a></li>
+        <li><a href="">Registro</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-section checkout-area checkout-area-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+
+          <!-- Checkout Form s-->
+          <form action="#" class="checkout-form" method="POST">
+            {% csrf_token %}
+            <div class="row row-40">
+
+              <div class="col-lg-7 mb--20">
+
+                <!-- Billing Address -->
+                <div id="billing-form" class="mb-40">
+                  <h4 class="checkout-title">Registro de producto</h4>
+                  {{ form.as_p }}
+
+                </div>
+
+                <!-- Shipping Address -->
+                <button class="place-order submit">Guardar</button>
+              </div>
+              
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Main Menu Starts -->
+  {% include 'base/footer.html' %}
+  <!-- Main Menu /ends -->
+</div>
+{% endblock %}

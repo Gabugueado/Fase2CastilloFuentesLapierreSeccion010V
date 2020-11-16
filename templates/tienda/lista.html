@@ -1,0 +1,138 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="site-wrapper belly-homepage--default">
+	{% include 'base/navbarStatic.html' %}
+	<div class="belly-bredcrumb-section">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="{% url 'index' %}">Home</a></li>
+				<li><a href="">Account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="page-section mb--50">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- My Account Tab Menu Start -->
+					<div class="col-lg-3 col-3 mb-5 container">
+						<div class="myaccount-tab-menu nav" role="tablist">
+							<a href="#lista" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Listar Clientes</a>
+							<a href="#producto" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Listar
+								Productos</a>
+						</div>
+					</div>
+
+					<div class="col-lg-12 col-12 mt--30 mt-lg-0">
+						<div class="tab-content" id="myaccountContent">
+							<!-- Single Tab Content Start -->
+							<div class="tab-pane fade" id="lista" role="tabpanel">
+								<div class="myaccount-content">
+									<h3>Clientes</h3>
+									<div class="myaccount-table table-responsive text-center">
+										{% if object_list %}
+										<table class="table table-bordered">
+											<thead class="thead-light">
+												<tr>
+													<th>ID</th>
+													<th>nombre de usuario</th>
+													<th>nombre</th>
+													<th>apellido</th>
+													<th>email</th>
+													<th>tipo</th>
+													<th>Funciones</th>
+												</tr>
+											</thead>
+											<tbody>
+
+
+												{% for user in object_list %}
+												<tr>
+													<td>{{ user.id }}</td>
+													<td>{{ user.username }}</td>
+													<td>{{ user.first_name }}</td>
+													<td>{{ user.last_name }}</td>
+													<td>{{ user.email }}</td>
+													{% if user.is_superuser == 1 %}
+													<td>administrador</td>
+													{% else %}
+													<td>usuario</td>
+													{% endif %}
+													<td>
+														<ul><a href="{% url 'cliente_eliminar' user.id %}">Eliminar</a></ul>
+														<ul><a href="{% url 'cliente_editar' user.id %}">Editar</a></ul>
+													</td>
+												</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+										{% else %}
+										<h1> no hay registros de clientes</h1>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+
+							<!-- Single Tab Content Start -->
+							<div class="tab-pane fade" id="producto" role="tabpanel">
+								<div class="myaccount-content">
+									<h3>Productos</h3>
+									<div class="myaccount-table table-responsive text-center">
+										{% if productos %}
+										<table class="table table-bordered">
+											<thead class="thead-light">
+												<tr>
+													<th>ID</th>
+													<th>nombre</th>
+													<th>Descripcion</th>
+													<th>Precio</th>
+												</tr>
+											</thead>
+											<tbody>
+												{{ object }}
+												{{ productos.id }}
+												{{ Producto.id }}
+												{{ producto.id }}
+												{{ contexto.id }}
+
+												{% for producto in productos %}
+												<tr>
+													<td>{{ user.id }}</td>
+
+												</tr>
+												{% endfor %}
+
+											</tbody>
+										</table>
+										{% else %}
+										<h1> no hay registros </h1>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- My Account Tab Content End -->
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Site Bottom Starts -->
+	<div class="site-bottom">
+		{% include 'base/footer.html' %}
+		<!-- Footer Ends -->
+	</div>
+	<!-- Site Footer Ends -->
+</div>
+<!-- Site Wrapper Ends -->
+{% endblock %}
+<td>
+	{#<ul><a href="{% url 'cliente_editar' id=user.id %}">Editar</a></ul>
+	<ul><a href="{% url 'cliente_eliminar' id=user.id %}">Eliminar</a></ul>
+	#}</td>
