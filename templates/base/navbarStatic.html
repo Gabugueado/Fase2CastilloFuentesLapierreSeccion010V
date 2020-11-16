@@ -1,0 +1,44 @@
+{% load static %}
+<header class="site-header initial-static header-1">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-xl-2 col-lg-3 col-md-3 offset-md-1 offset-lg-0 col-6 order-md-2">
+                <!-- Header Logo -->
+                <div class="site-brand text-lg-center">
+                    <a href="{% url 'index' %}" class="brand_logo ">
+                        <img src="{% static 'image/main-logo.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-4 col-12 order-md-1 order-3 mobile-menu">
+                <!-- Main Menu Start -->
+                <div class="mean-wrapper">
+                    <nav class="mean-active">
+                        <ul class="main-menu">
+                            <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'index' %}"
+                                    class="menu-link"><span>Inicio</span></a>
+                            </li>
+                            <li class="menu-item has-dropdown mega-menu"><a href="{% url 'tienda' %}"
+                                    class="menu-link"><span>Tienda</span>
+                                </a>
+                            </li>
+                            <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'registrar' %}"
+                                    class="link menu-link"><span>Registrar Cliente</span></a>
+                            </li>
+                            <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'producto_crear' %}"
+                                class="link menu-link">Registrar Producto</a>
+                            </li>
+                            <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'lista' %}"
+                                    class="menu-link"><span>Listas</span> </a>
+                            </li>
+                            <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'contacto' %}"
+                                    class="link menu-link">Contacto</a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
