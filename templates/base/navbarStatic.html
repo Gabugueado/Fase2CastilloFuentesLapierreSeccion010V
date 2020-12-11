@@ -22,21 +22,42 @@
                                     class="menu-link"><span>Tienda</span>
                                 </a>
                             </li>
+                            {% if user.is_superuser %}
                             <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'registrar' %}"
                                     class="link menu-link"><span>Registrar Cliente</span></a>
                             </li>
                             <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'producto_crear' %}"
-                                class="link menu-link">Registrar Producto</a>
+                                    class="link menu-link">Registrar Producto</a>
                             </li>
                             <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'lista' %}"
                                     class="menu-link"><span>Listas</span> </a>
                             </li>
+                            {% endif %}
                             <li class="menu-item has-dropdown normal-dropdown"><a href="{% url 'contacto' %}"
                                     class="link menu-link">Contacto</a>
                             </li>
-                            
                         </ul>
                     </nav>
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-4  col-6 order-lg-3">
+                <!-- Header Right Options -->
+                <div class="header-right-options">
+                        <ul class="main-menu">
+                            {% if user.is_authenticated %}
+                                <li class="menu-item has-dropdown normal-dropdown">
+                                    <a href="{% url 'logout' %}" class="link menu-link">Cerrar Sesion</a>
+                                </li>
+                            {% else %}
+                                <li class="menu-item has-dropdown normal-dropdown">
+                                        <a href="{% url 'registrar' %}" class="link menu-link">Registrarse</a>
+                                </li>
+                                <li class="menu-item has-dropdown normal-dropdown">
+                                    <a href="{% url 'login' %}" class="link menu-link">Iniciar Sesion</a>
+                                </li>
+                                
+                            {% endif%}
+                        </ul>
                 </div>
             </div>
         </div>

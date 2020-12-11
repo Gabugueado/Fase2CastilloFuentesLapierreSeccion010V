@@ -19,4 +19,4 @@ def productos_view(request):
 def listaProducto_list(request):
     producto =  Producto.objects.all()
     contexto = {'productos':producto}
-    return render(request, 'tienda/listaCliente.html', contexto)
+    return render(request, 'tienda/lista.html', contexto)

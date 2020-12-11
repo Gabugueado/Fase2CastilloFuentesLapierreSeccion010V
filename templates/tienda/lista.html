@@ -25,7 +25,6 @@
 								Productos</a>
 						</div>
 					</div>
-
 					<div class="col-lg-12 col-12 mt--30 mt-lg-0">
 						<div class="tab-content" id="myaccountContent">
 							<!-- Single Tab Content Start -->
@@ -82,6 +81,7 @@
 									<h3>Productos</h3>
 									<div class="myaccount-table table-responsive text-center">
 										{% if productos %}
+                
 										<table class="table table-bordered">
 											<thead class="thead-light">
 												<tr>
@@ -92,22 +92,23 @@
 												</tr>
 											</thead>
 											<tbody>
-												{{ object }}
-												{{ productos.id }}
-												{{ Producto.id }}
-												{{ producto.id }}
-												{{ contexto.id }}
-
-												{% for producto in productos %}
+												{% for products in productos %}
 												<tr>
-													<td>{{ user.id }}</td>
-
+													<td>{{ products.id }}</td>
+													<td>{{ products.nombre }}</td>
+													<td>{{ products.descripcion }}</td>
+													<td>{{ products.precio }}</td>
 												</tr>
 												{% endfor %}
 
 											</tbody>
 										</table>
 										{% else %}
+										{{ Productos }}
+										{{ productos }}
+										{{ Producto }}
+										{{ productos }}
+									
 										<h1> no hay registros </h1>
 										{% endif %}
 									</div>

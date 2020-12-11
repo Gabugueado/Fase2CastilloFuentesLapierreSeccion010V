@@ -15,16 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.urls import path
-from apps.cliente.views import index, login_view,  tienda_list
+from apps.cliente.views import index,   tienda_list
 # vistas basadas en funciones
 from apps.cliente.views import contacto_view, listaUser_list, cliente_edit, cliente_delete
 # vistas basadas en clases
 from apps.cliente.views import RegistroUsuario, List, UserUpdate, UserDelete 
 urlpatterns = [
-    url('home', index, name='index'),
-    url('contacto', contacto_view, name='contacto'),
-    url('login', login_view, name='login'),
-    url('tienda', tienda_list, name='tienda'),
+    # path('login', login_view, name='login'),
     # vistas basadas en funciones
     # url('nuevo', cliente_view, name='cliente_crear'),
     # url('lista', listaUser_list, name='lista'),
@@ -34,7 +31,8 @@ urlpatterns = [
     url('registrar', RegistroUsuario.as_view(), name='registrar'),
     url('lista', List.as_view(), name='lista'),
     path('editar/<int:pk>/', UserUpdate.as_view(), name='cliente_editar'),
-    path('eliminar/<pk>/', UserDelete.as_view(), name='cliente_eliminar')
+    path('eliminar/<pk>/', UserDelete.as_view(), name='cliente_eliminar'),
+
 ]
 
 
